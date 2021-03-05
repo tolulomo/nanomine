@@ -62,7 +62,7 @@ source ~/.bashrc
 echo Updating pip
 pip install --upgrade pip
 
-apt-get install libapache2-mod-wsgi-py3
+# apt-get install libapache2-mod-wsgi-py3
 
 # if [[ -z $(which pip) ]]; then
 #   echo 'Installing pip - python package installer'
@@ -84,7 +84,7 @@ fi
 echo installing whyis ...
 #export WHYIS_FORK='bluedevil-oit'
 export WHYIS_FORK='tolulomo'
-export WHYIS_BRANCH='master'
+export WHYIS_BRANCH='vegaEditor'
 ## bash < <(curl -skL https://raw.githubusercontent.com/tetherless-world/whyis/master/install.sh)
 curl -skL --output whyis-install.tmp https://raw.githubusercontent.com/${WHYIS_FORK}/whyis/${WHYIS_BRANCH}/install.sh
 if [[ $? -ne 0 ]]; then
