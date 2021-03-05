@@ -27,7 +27,7 @@ fi
 
 echo installing python3.7
 # Install requirements
-sudo apt-get install -y build-essential \
+apt-get install -y build-essential \
 checkinstall \
 libreadline-gplv2-dev \
 libncursesw5-dev \
@@ -53,7 +53,7 @@ wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
 tar xvf Python-3.7.0.tar.xz
 cd /tmp/Python37/Python-3.7.0
 ./configure
-sudo make altinstall
+make altinstall
 
 echo 'alias python=python3.7' >> ~/.bashrc
 echo 'alias pip=pip3.7' >> ~/.bashrc
@@ -61,6 +61,8 @@ source ~/.bashrc
 
 echo Updating pip
 pip install --upgrade pip
+
+apt-get install libapache2-mod-wsgi-py3
 
 # if [[ -z $(which pip) ]]; then
 #   echo 'Installing pip - python package installer'
