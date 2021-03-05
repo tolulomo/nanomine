@@ -25,15 +25,48 @@ if [[ $(whoami) != "root" ]]; then
   exit
 fi
 
-if [[ -z $(which pip) ]]; then
-  echo 'Installing pip - python package installer'
-  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-  (su root -c 'python get-pip.py')
-  (su root -c 'pip install --upgrade pip')
-else
-  echo 'Already installed: pip -- updating pip'
-  (su root -c 'pip install --upgrade pip')
-fi
+echo installing python3.7
+# Install requirements
+sudo apt-get install -y build-essential \
+checkinstall \
+libreadline-gplv2-dev \
+libncursesw5-dev \
+libssl-dev \
+libsqlite3-dev \
+tk-dev \
+libgdbm-dev \
+libc6-dev \
+libbz2-dev \
+zlib1g-dev \
+openssl \
+libffi-dev \
+python3-dev \
+python3-setuptools \
+wget
+
+# Prepare to build
+mkdir /tmp/Python37
+cd /tmp/Python37
+
+# Pull down Python 3.7, build, and install
+wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
+tar xvf Python-3.7.0.tar.xz
+cd /tmp/Python37/Python-3.7.0
+./configure
+sudo make altinstall
+
+echo 'alias python=python3.7' >> ~/.bashrc
+echo 'alias pip=pip3.7' >> ~/.bashrc
+source ~/.bashrc
+
+# if [[ -z $(which pip) ]]; then
+#   echo 'Installing pip - python package installer'
+#   curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+#   (su root -c 'python3 get-pip.py')
+# else
+#   echo 'Already installed: pip -- updating pip'
+#   (su root -c 'pip3 install --upgrade pip')
+# fi
 
 echo installing git
 apt-get install -y git
@@ -46,7 +79,7 @@ fi
 echo installing whyis ...
 #export WHYIS_FORK='bluedevil-oit'
 export WHYIS_FORK='tolulomo'
-export WHYIS_BRANCH='vegaEditor'
+export WHYIS_BRANCH='master'
 ## bash < <(curl -skL https://raw.githubusercontent.com/tetherless-world/whyis/master/install.sh)
 curl -skL --output whyis-install.tmp https://raw.githubusercontent.com/${WHYIS_FORK}/whyis/${WHYIS_BRANCH}/install.sh
 if [[ $? -ne 0 ]]; then
