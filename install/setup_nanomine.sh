@@ -32,7 +32,7 @@ echo 'export NM_NEO4J_IMAGE="http://path.to.neo4j.tgz"' >> /apps/nanomine_env  #
 source /apps/nanomine_env
 
 #install nanomine_graph
-export NG_FORK='bluedevil-oit'
+export NG_FORK='tolulomo'
 export NG_BRANCH='master'
 
 cd /apps

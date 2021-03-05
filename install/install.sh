@@ -59,6 +59,9 @@ echo 'alias python=python3.7' >> ~/.bashrc
 echo 'alias pip=pip3.7' >> ~/.bashrc
 source ~/.bashrc
 
+echo Updating pip
+pip install --upgrade pip
+
 # if [[ -z $(which pip) ]]; then
 #   echo 'Installing pip - python package installer'
 #   curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
