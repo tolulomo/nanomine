@@ -57,6 +57,7 @@ make altinstall
 
 echo 'alias python=python3.7' >> ~/.bashrc
 echo 'alias pip=pip3.7' >> ~/.bashrc
+exec bash
 source ~/.bashrc
 
 echo Updating pip
@@ -84,7 +85,7 @@ fi
 echo installing whyis ...
 #export WHYIS_FORK='bluedevil-oit'
 export WHYIS_FORK='tolulomo'
-export WHYIS_BRANCH='vegaEditor'
+export WHYIS_BRANCH='temp03052015'
 ## bash < <(curl -skL https://raw.githubusercontent.com/tetherless-world/whyis/master/install.sh)
 curl -skL --output whyis-install.tmp https://raw.githubusercontent.com/${WHYIS_FORK}/whyis/${WHYIS_BRANCH}/install.sh
 if [[ $? -ne 0 ]]; then
