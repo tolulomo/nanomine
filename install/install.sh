@@ -62,7 +62,6 @@ source ~/.bashrc
 echo Updating pip
 pip install --upgrade pip
 
-# apt-get install libapache2-mod-wsgi-py3
 
 # if [[ -z $(which pip) ]]; then
 #   echo 'Installing pip - python package installer'
