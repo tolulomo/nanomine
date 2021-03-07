@@ -57,7 +57,6 @@ make altinstall
 
 echo 'alias python=python3.7' >> ~/.bashrc
 echo 'alias pip=pip3.7' >> ~/.bashrc
-exec bash
 source ~/.bashrc
 
 echo Updating pip
